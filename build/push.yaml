@@ -1,0 +1,14 @@
+trigger:
+- master
+
+pool:
+  name: 'default'
+  vmImage: 'Runner-azure'
+
+
+steps:
+- task: Docker@2
+  inputs:
+    docker login -u $(dockerId) -p $(pswd) $(dockerId).azurecr.io
+    docker push nignxazurecicd:version1
+  displayName: 'Push Docker Image to ACR'
