@@ -12,6 +12,6 @@ steps:
     cd azureCICD/build
     sudo chmod 666 /var/run/docker.sock
     docker rmi $(docker images -a -q)
-    docker build . -t nignxazurecicd:version1
-    docker tag  nignxazurecicd:version1 nignxazurecicd:version1
+    docker build . -t nignxazurecicd/nignxazurecicd:version1
+    docker tag  nignxazurecicd/nignxazurecicd:version1 nignxazurecicd/nignxazurecicd:version1
   displayName: 'Build Docker Image'
