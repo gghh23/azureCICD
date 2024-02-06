@@ -2,6 +2,7 @@ trigger:
 - master
 
 pool:
+  name: 'default'
   vmImage: 'Runner-azure'
 
 steps:
