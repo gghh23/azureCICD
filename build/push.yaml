@@ -8,6 +8,6 @@ pool:
 steps:
 
 - script: |
-    docker login -u $(dockerId) -p $(pswd) nignxazurecicd.azurecr.io
-    docker push $(dockerId).azurecr.io/$(imageName)
+    docker login -u $(DockerCred.dockerId) -p $(DockerCred.pswd) nignxazurecicd.azurecr.io
+    docker push nignxazurecicd:version1
   displayName: 'Build and Push to acr'
