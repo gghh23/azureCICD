@@ -3,12 +3,11 @@ trigger:
 
 pool:
   name: 'default'
-  vmImage: 'Runner-azure'
-
+  vmImage: 'azure-agent'
 
 steps:
-- task: Docker@2
-  inputs:
-    docker login -u $(dockerId) -p $(pswd) $(dockerId).azurecr.io
-    docker push nignxazurecicd:version1
-  displayName: 'Push Docker Image to ACR'
+
+- script: |
+    docker login -u $(dockerId) -p $(pswd) nignxazurecicd.azurecr.io
+    docker push $(dockerId).azurecr.io/$(imageName)
+  displayName: 'Build and Push to acr'
